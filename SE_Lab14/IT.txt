@@ -1,0 +1,9 @@
+   id  datatype    idtype      Line     value     Scope
+   fs       STR         F         1
+    a       STR         P         1         fs
+    b       STR         P         1         fs
+subst       STR         F         4         fs
+    a       STR         P         4         subst
+    p       INT         P         4         0         subst
+   L0       INT         L         6         1         fs
+   L1       INT         L         6         3         fs
