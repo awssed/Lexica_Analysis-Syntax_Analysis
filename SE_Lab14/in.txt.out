@@ -1,1 +1,1 @@
-string function fs(string a,string b)|{|declare string с;|string function substr(string a,integer p,|integer n);|c=substr(a,1,3)+b;|return c;|};|
+integer function abc(integer a,integer b)|{|declare integer c;|c=a++2;|return c;|};|main|{|declare integer x;|x=abc(1,2);|return 0;|}|

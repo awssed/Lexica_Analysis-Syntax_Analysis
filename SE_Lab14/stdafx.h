@@ -15,3 +15,5 @@
 #include"LA.h"
 #include"LT.h"
 #include"FST.h"
+#include"GRB.h"	
+#include"MFST.h"

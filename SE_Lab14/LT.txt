@@ -1,8 +1,1 @@
-1	tfi(ti,ti)
-2	{
-3	dt;
-4	tfi(ti,ti,
-5	ti);
-6	i=i(i,l,l)vi;
-7	ri;
-8	};
+1	tfi(ti,ti)2	{3	dti;4	i=ivvl;5	ri;6	};7	m8	{9	dti;10	i=i(l,l);11	rl;12	}

@@ -1,9 +1,11 @@
    id  datatype    idtype      Line     value     Scope
-   fs       STR         F         1
-    a       STR         P         1         fs
-    b       STR         P         1         fs
-subst       STR         F         4         fs
-    a       STR         P         4         subst
-    p       INT         P         4         0         subst
-   L0       INT         L         6         1         fs
-   L1       INT         L         6         3         fs
+  abc       INT         F         1         0
+    a       INT         P         1         0         abc
+    b       INT         P         1         0         abc
+    c       INT         V         3         0         abc
+   L0       INT         L         4         2         abc
+ main       INT         F         7         0
+    x       INT         V         9         0         main
+   L1       INT         L        10         1         main
+   L2       INT         L        10         2         main
+   L3       INT         L        11         0         main

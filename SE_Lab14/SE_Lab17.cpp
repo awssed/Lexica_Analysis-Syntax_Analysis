@@ -8,6 +8,7 @@
 #include"FST.h"
 #include"LA.h"
 #include"LT.h"
+#include"MFST.h"
 #include<cwchar>
 #include<time.h>
 
@@ -104,7 +105,15 @@ int _tmain(int argc, _TCHAR* argv[])
 		Log::WriteParm(log, parm);
 		Out::WriteText(out, in_result);
 		Log::WriteIn(log, in_result);
-		LA::LA(parm, in_result);
+		LA::LEX LEX=LA::LA(parm, in_result);
+
+		MFST_TRACE_START						//отладка
+			MFST::Mfst mfst(LEX.lexTable, GRB::getGreibach());			//автомат
+		mfst.start();											// старт синтаксического анализа
+
+		mfst.savededucation();									//сохранить правила вывода
+
+		mfst.printrules();
 		Log::Close(log);
 		Out::Close(out);
 	}

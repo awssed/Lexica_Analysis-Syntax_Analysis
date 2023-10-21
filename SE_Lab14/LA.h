@@ -4,6 +4,7 @@
 #include"stdafx.h"
 #include"LA.h"
 #include"IT.h"
+#include"LT.h"
 #define MAX_LEX_SIZE 4096
 #define MARK '\''
 #define NEW_LINE '|'
@@ -120,7 +121,12 @@
 );
 namespace LA
 {
+	struct LEX
+	{
+		IT::IdTable idTable;
+		LT::LexTable lexTable;
+	};
 	char FST(char* str);
 	void Add_LT(int line, char token);
-	void LA(Parm::PARM parm, In::IN in);
+	LEX LA(Parm::PARM parm, In::IN in);
 } 

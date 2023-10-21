@@ -60,8 +60,9 @@ namespace LA
 			return LEX_ID;
 		return NULL;
 	}
-	void LA(Parm::PARM parm,In::IN in)
+	LEX LA(Parm::PARM parm,In::IN in)
 	{
+		LEX lexResult;
 		int indexIT;
 		setlocale(LC_ALL, "rus");
 		LT::Entry current_entry_LT;
@@ -232,9 +233,6 @@ namespace LA
 						if (indexIT >= 0)
 						{
 							for (int i = 0; i < strlen(current_entry_IT.id); i++)
-								std::cout << current_entry_IT.id[i];
-							std::cout << __IdTable.table[indexIT].scope->id;
-							std::cout << std::endl;
 							current_entry_LT.idxTI = indexIT;
 						}
 					}
@@ -282,10 +280,7 @@ namespace LA
 				}
 				break;
 			case NEW_LINE:
-				current_entry_LT.lexema[0] = '\n';
-				current_entry_LT.sn = currentLine;
 				currentLine++;
-				LT::Add(__LexTable, current_entry_LT);
 				current_entry_LT.lexema[0] = NULL;	
 				break;
 			case SEMICOLON:
@@ -400,8 +395,8 @@ namespace LA
 			<< std::setw(10) << "datatype"
 			<< std::setw(10) << "idtype"
 			<< std::setw(10) << "Line"
-			<< std::setw(10) << "value" 
-			<<std::setw(10)  << "Scope" << std::endl;
+			<< std::setw(10) << "value"
+			<< std::setw(10) << "Scope" << std::endl;
 
 		for (int i = 0; i < __IdTable.size; i++) {
 			current_entry_IT = IT::GetEntry(__IdTable, i);
@@ -440,5 +435,8 @@ namespace LA
 			IT_file << std::endl;
 		}
 		IT_file.close();
+		lexResult.idTable = __IdTable;
+		lexResult.lexTable = __LexTable;
+		return lexResult;
 	}
 }

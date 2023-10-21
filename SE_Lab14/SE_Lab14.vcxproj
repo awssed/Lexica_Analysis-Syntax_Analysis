@@ -24,7 +24,7 @@
     <ProjectGuid>{385b8422-5c9f-4108-abe2-12e821758b26}</ProjectGuid>
     <RootNamespace>SELab14</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>SE_Lab17</ProjectName>
+    <ProjectName>SE_Lab18</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -130,9 +130,12 @@
   <ItemGroup>
     <ClInclude Include="Error.h" />
     <ClInclude Include="FST.h" />
+    <ClInclude Include="GRB.h" />
+    <ClInclude Include="MFST.h" />
     <ClInclude Include="LA.h" />
     <ClInclude Include="LT.h" />
     <ClInclude Include="Out.h" />
+    <ClInclude Include="Rules_GRB.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="In.h" />
     <ClInclude Include="Log.h" />
@@ -142,11 +145,13 @@
   <ItemGroup>
     <ClCompile Include="Error.cpp" />
     <ClCompile Include="FST.cpp" />
+    <ClCompile Include="GRB.cpp" />
     <ClCompile Include="In.cpp" />
     <ClCompile Include="IT.cpp" />
     <ClCompile Include="LA.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="LT.cpp" />
+    <ClCompile Include="MFST.cpp" />
     <ClCompile Include="Out.cpp" />
     <ClCompile Include="Parm.cpp" />
     <ClCompile Include="SE_Lab17.cpp" />
