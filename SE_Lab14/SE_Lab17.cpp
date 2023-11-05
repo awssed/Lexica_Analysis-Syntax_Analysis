@@ -93,11 +93,14 @@ int _tmain(int argc, _TCHAR* argv[])
 	//	Log::WriteError(log, e);
 	//	Out::WriteError(out, e);
 	//}
-	Parm::PARM parm = Parm::getparm(argc, argv);
-	Log::LOG log = Log::INITLOG;
-	Out::OUT out = Out::INITOUT;
+	Parm::PARM parm;
+	Log::LOG log;
+	Out::OUT out;
 	try
 	{
+		parm = Parm::getparm(argc, argv);
+		log = Log::INITLOG;
+		out = Out::INITOUT;
 		out = Out::GetOut(parm.out);
 		log = Log::getlog(parm.log);
 		In::IN in_result = In::getin(parm.in);
@@ -105,7 +108,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		Log::WriteParm(log, parm);
 		Out::WriteText(out, in_result);
 		Log::WriteIn(log, in_result);
-		LA::LEX LEX=LA::LA(parm, in_result);
+		LA::LEX LEX = LA::LA(parm, in_result);
 
 		MFST_TRACE_START						//отладка
 			MFST::Mfst mfst(LEX.lexTable, GRB::getGreibach());			//автомат
@@ -120,12 +123,14 @@ int _tmain(int argc, _TCHAR* argv[])
 	catch (Error::ERROR e)
 	{
 		cout << "Ошибка" << e.id << ':' << e.message << endl << endl;
-		if(e.inext.line)
-		Log::WriteError(log, e);
-		Out::WriteError(out, e);
+		if (e.inext.line > 0)
+		{
+			Log::WriteError(log, e);
+			Out::WriteError(out, e);
 			Log::Close(log);
-		Out::Close(out);
+			Out::Close(out);
+		}
 	}
-	
+
 	return 0;
 };
